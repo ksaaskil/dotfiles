@@ -1,9 +1,22 @@
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-alias python3.5.0='source $HOME/.pyenv/versions/python3.5.0/bin/activate'
+parse_virtual_env() {
+  BLUE='\[\e[0;34m\]'
+  RESET='\[\e[0m\]'
+  if [[ $VIRTUAL_ENV != "" ]]; then
+    # Strip out the path and just leave the env name
+    echo '${BLUE}(${VIRTUAL_ENV##*/})${RESET}'
+  fi
+}
+
+function updatePrompt {
+  PS1="$(parse_virtual_env)\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+}
+
+export -f updatePrompt
+export PROMPT_COMMAND='updatePrompt'
 
 alias nbstrip_jq="jq --indent 1 \
     '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
@@ -12,7 +25,15 @@ alias nbstrip_jq="jq --indent 1 \
     | .cells[].metadata = {} \
     '"
 
-source $HOME/.pyenv/versions/2.7.10/envs/python2.7.10/bin/activate
 export ANDROID_HOME=$HOME/Library/Android/sdk/
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+# export PATH="$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+pyenv activate python-2.7.10
