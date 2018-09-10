@@ -3,11 +3,9 @@ parse_git_branch() {
 }
 
 parse_virtual_env() {
-  BLUE='\[\e[0;34m\]'
-  RESET='\[\e[0m\]'
   if [[ $VIRTUAL_ENV != "" ]]; then
     # Strip out the path and just leave the env name
-    echo '${BLUE}(${VIRTUAL_ENV##*/})${RESET}'
+    echo '\[\e[0;34m\](${VIRTUAL_ENV##*/})\[\e[0m\]'
   fi
 }
 
