@@ -43,6 +43,8 @@ alias python2.7.10='pyenv activate python-2.7.10'
 export PATH=~/.npm-global/bin:$PATH
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
 export PATH=/Users/kimmo/bin:$PATH
+# VS Code
+export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/:$PATH
 
 # added by Miniconda3 installer
 # export PATH="/Users/kimmo/miniconda3/bin:$PATH"
