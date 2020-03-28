@@ -36,15 +36,13 @@ fi
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
-alias py3='pyenv activate python-3.6.2'
-alias python3.6.2='pyenv activate python-3.6.2'
-alias python2.7.10='pyenv activate python-2.7.10'
 
 export PATH=~/.npm-global/bin:$PATH
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
-export PATH=/Users/kimmo/bin:$PATH
+
+# Local bin
+export PATH=~/bin:$PATH
+export PATH=/Users/ksaaskil/.local/bin:$PATH
+
 # VS Code
 export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/:$PATH
-
-# added by Miniconda3 installer
-# export PATH="/Users/kimmo/miniconda3/bin:$PATH"

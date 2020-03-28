@@ -11,3 +11,8 @@ alias git-branches="git for-each-ref --sort=-committerdate refs/heads --format='
 alias hb='hub browse'
 alias hc='hub compare'
 alias hp='hub pr show'
+
+# Pyenv
+alias py3='pyenv activate python-3.6.2'
+alias python3.6.2='pyenv activate python-3.6.2'
+alias python2.7.10='pyenv activate python-2.7.10'
