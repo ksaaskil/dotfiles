@@ -1,0 +1,52 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "shift+alt+r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "-rerunSearchEditorSearch",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "editor.action.refactor",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "-editor.action.refactor",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+tab",
+    "command": "workbench.action.quickSwitchWindow"
+  },
+  {
+    "key": "cmd+up",
+    "command": "cursorMove",
+    "args": {
+        "to": "up",
+        "by": "line",
+        "value": 10
+    },
+    "when": "editorTextFocus"
+  },
+  {
+      "key": "cmd+down",
+      "command": "cursorMove",
+      "args": {
+          "to": "down",
+          "by": "line",
+          "value": 10
+      },
+      "when": "editorTextFocus"
+  },
+]
